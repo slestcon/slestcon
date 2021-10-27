@@ -1,0 +1,5 @@
+If `npm run build` fails because gh-pages is an existing branch:
+    Manually remove node_modules/.cache/gh-pages
+
+To get debug on deployment
+    NODE_DEBUG=gh-pages npm run deploy
