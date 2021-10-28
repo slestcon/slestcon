@@ -12,4 +12,4 @@ const Slestcon2022 = () => (
 	</div>
 );
 
-export default Home;
+export default Slestcon2022;
