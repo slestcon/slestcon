@@ -1,36 +1,24 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Navigation = () => (
-	<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div className="container-fluid">
-			<NavLink className="navbar-brand" to="/">SlestCon</NavLink>
-			
-			<button class="navbar-toggler" 
-				type="button" 
-				data-bs-toggle="collapse" 
-				data-bs-target="#navbarSupportedContent" 
-				aria-controls="navbarSupportedContent" 
-				aria-expanded="false" 
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		</div>
-		<div clas="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul className="navbar-nav me-auto mb-2 mb-lg-0">
-				<li className="nav-item">
-					<NavLink className="nav-link" to="/Slestcon2021">SlestCon2021</NavLink>
-				</li>
-				<li className="nav-item">
-					<NavLink className="nav-link" to="/Slestcon2022">SlestCon2022</NavLink>
-				</li>
-				<li className="nav-item">
-					<NavLink className="nav-link" to="/Contact">Contact</NavLink>
-				</li>
-			</ul>
-		</div>
-		
-	</nav>
+
+	<Navbar bg="dark" variant="dark" sticky="top" expand="lg">
+		<Container>
+			<Navbar.Brand href="/">SlestCon</Navbar.Brand>
+			<Navbar.Toggle aria-controls="basic-navbar-nav"/>
+			<Navbar.Collapse id="basic-navbar-nav">
+				<Nav className="me-auto">
+					<Nav.Link href="/Slestcon2021">SlestCon 2021</Nav.Link>
+					<Nav.Link href="/Slestcon2022">SlestCon 2022</Nav.Link>
+					
+				</Nav>
+				<Nav className="d-flex">
+					<Nav.Link href="/Contact">Contact</Nav.Link>
+				</Nav>
+			</Navbar.Collapse>
+		</Container>
+	</Navbar>
 );
 
 export default Navigation;
