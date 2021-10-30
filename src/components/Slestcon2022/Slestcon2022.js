@@ -44,7 +44,7 @@ const Slestcon2022 = () => (
 							alt="food"
 							src={foodPic}/>
 						<Figure.Caption>
-							- Slestcon Highlights Team -
+							- SlestCon Highlights Team -
 						</Figure.Caption>
 					</Figure>
 				</Col>
@@ -59,7 +59,7 @@ const Slestcon2022 = () => (
 							alt="food"
 							src={gameplayPic}/>
 						<Figure.Caption>
-							- Only at Slestcon -
+							- Only at SlestCon -
 						</Figure.Caption>
 					</Figure>
 				</Col>
@@ -84,23 +84,30 @@ const Slestcon2022 = () => (
 		<Container fluid className="bg-secondary text-white my-5 py-5">
 			<Row>
 				<Col className="fw-bold fs-3 my-5 py-5">
-					Join us at SlestCon 2022
-					<br/>
-					<FontAwesomeIcon icon={ faHandSparkles } size="3x" />
+					<a href="/slestcon/#/Faq" className="text-reset text-decoration-none">
+						Join us at SlestCon 2022
+						<br/>
+						<FontAwesomeIcon icon={ faHandSparkles } size="3x" />
+					</a>
+					
 				</Col>
 				<Col>
 					<Row>
 						<Col className="fw-bold fs-3 my-2 py-2">
-							Apply to be a Speaker or Performer
-							<br/>
-							<FontAwesomeIcon icon={ faComment } size="3x" />
+							<a href="/slestcon/#/Faq" className="text-reset text-decoration-none">
+								Apply to be a Speaker or Performer
+								<br/>
+								<FontAwesomeIcon icon={ faComment } size="3x" />
+							</a>
 						</Col>
 					</Row>
 					<Row>
 						<Col className="fw-bold fs-3 my-2 py-2">
-							Get More SlestCon News
-							<br/>
-							<FontAwesomeIcon icon={ faNewspaper } size="3x" />
+							<a href="/slestcon/#/Faq" className="text-reset text-decoration-none">
+								Get More SlestCon News
+								<br/>
+								<FontAwesomeIcon icon={ faNewspaper } size="3x" />
+							</a>
 						</Col>
 					</Row>
 				</Col>
