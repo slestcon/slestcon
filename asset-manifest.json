@@ -1,25 +1,27 @@
 {
   "files": {
     "main.css": "/slestcon/static/css/main.5739ad41.chunk.css",
-    "main.js": "/slestcon/static/js/main.f356bccd.chunk.js",
-    "main.js.map": "/slestcon/static/js/main.f356bccd.chunk.js.map",
-    "runtime-main.js": "/slestcon/static/js/runtime-main.9dd6af92.js",
-    "runtime-main.js.map": "/slestcon/static/js/runtime-main.9dd6af92.js.map",
+    "main.js": "/slestcon/static/js/main.07755776.chunk.js",
+    "main.js.map": "/slestcon/static/js/main.07755776.chunk.js.map",
+    "runtime-main.js": "/slestcon/static/js/runtime-main.b6a799d6.js",
+    "runtime-main.js.map": "/slestcon/static/js/runtime-main.b6a799d6.js.map",
     "static/css/2.0a9ec390.chunk.css": "/slestcon/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.bf9b1bd1.chunk.js": "/slestcon/static/js/2.bf9b1bd1.chunk.js",
-    "static/js/2.bf9b1bd1.chunk.js.map": "/slestcon/static/js/2.bf9b1bd1.chunk.js.map",
-    "static/js/3.42407661.chunk.js": "/slestcon/static/js/3.42407661.chunk.js",
-    "static/js/3.42407661.chunk.js.map": "/slestcon/static/js/3.42407661.chunk.js.map",
+    "static/js/2.9673e977.chunk.js": "/slestcon/static/js/2.9673e977.chunk.js",
+    "static/js/2.9673e977.chunk.js.map": "/slestcon/static/js/2.9673e977.chunk.js.map",
     "index.html": "/slestcon/index.html",
     "static/css/2.0a9ec390.chunk.css.map": "/slestcon/static/css/2.0a9ec390.chunk.css.map",
     "static/css/main.5739ad41.chunk.css.map": "/slestcon/static/css/main.5739ad41.chunk.css.map",
-    "static/js/2.bf9b1bd1.chunk.js.LICENSE.txt": "/slestcon/static/js/2.bf9b1bd1.chunk.js.LICENSE.txt"
+    "static/js/2.9673e977.chunk.js.LICENSE.txt": "/slestcon/static/js/2.9673e977.chunk.js.LICENSE.txt",
+    "static/media/food_screencap_1.cc126c8c.PNG": "/slestcon/static/media/food_screencap_1.cc126c8c.PNG",
+    "static/media/gameplay_screencap_1.d0d16f35.PNG": "/slestcon/static/media/gameplay_screencap_1.d0d16f35.PNG",
+    "static/media/hottodogu_screencap_1.f4d316df.PNG": "/slestcon/static/media/hottodogu_screencap_1.f4d316df.PNG",
+    "static/media/slest_face_2.1729215c.jfif": "/slestcon/static/media/slest_face_2.1729215c.jfif"
   },
   "entrypoints": [
-    "static/js/runtime-main.9dd6af92.js",
+    "static/js/runtime-main.b6a799d6.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.bf9b1bd1.chunk.js",
+    "static/js/2.9673e977.chunk.js",
     "static/css/main.5739ad41.chunk.css",
-    "static/js/main.f356bccd.chunk.js"
+    "static/js/main.07755776.chunk.js"
   ]
 }
