@@ -11,7 +11,7 @@ import App from './App';
 // uses HashRouter because github pages cannot use BrowserRouter
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter basename="/slestcon">
+    <HashRouter>
 			<App />
 		</HashRouter>
   </React.StrictMode>,
