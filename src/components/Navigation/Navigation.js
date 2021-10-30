@@ -5,7 +5,7 @@ const Navigation = () => (
 
 	<Navbar bg="dark" variant="dark" sticky="top" expand="lg">
 		<Container>
-			<Navbar.Brand href="/slestcon/#">SlestCon</Navbar.Brand>
+			<Navbar.Brand href="/slestcon/#/Slestcon2022">SlestCon</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="me-auto">
