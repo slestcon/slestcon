@@ -2,12 +2,14 @@ import React from "react";
 import { Container, Row, Col, Figure, Image } from "react-bootstrap";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHotdog, faHandSparkles, faComment, faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { faHandSparkles, faComment, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 import slestPic from './pictures/slest_face_2.jfif';
 import foodPic from './pictures/food_screencap_1.PNG';
 import gameplayPic from './pictures/gameplay_screencap_1.PNG';
 import hottodoguPic from './pictures/hottodogu_screencap_1.PNG';
+
+import HotdogPopper from '../HotdogPopper/HotdogPopper';
 
 const Slestcon2022 = () => (
 	<Container fluid>
@@ -115,7 +117,7 @@ const Slestcon2022 = () => (
 		</Container>
 
 		<Container>
-			<FontAwesomeIcon icon={ faHotdog }></FontAwesomeIcon>
+			<HotdogPopper />
 		</Container>
 	</Container>
 	

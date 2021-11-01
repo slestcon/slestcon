@@ -9,8 +9,8 @@ const Navigation = () => (
 			<Navbar.Toggle aria-controls="basic-navbar-nav"/>
 			<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="me-auto">
-					<Nav.Link href="/slestcon/#/Slestcon2021">SlestCon 2021</Nav.Link>
 					<Nav.Link href="/slestcon/#/Slestcon2022">SlestCon 2022</Nav.Link>
+					<Nav.Link href="/slestcon/#/Slestcon2021">SlestCon 2021</Nav.Link>
 				</Nav>
 				<Nav className="d-flex">
 					<Nav.Link href="/slestcon/#/Faq">FAQ</Nav.Link>
