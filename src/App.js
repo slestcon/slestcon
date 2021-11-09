@@ -8,6 +8,7 @@ import Slestcon2021 from './components/Slestcon2021/Slestcon2021';
 import Slestcon2022 from './components/Slestcon2022/Slestcon2022';
 import Faq from './components/Faq/Faq';
 import Contact from './components/Contact/Contact';
+import Test from './components/Test/Test';
 
 class App extends React.Component {
 
@@ -23,6 +24,7 @@ class App extends React.Component {
 					<Route exact path="/Slestcon2022" component={Slestcon2022} />
 					<Route exact path="/Faq" component={Faq} />
 					<Route exact path="/Contact" component={Contact} />
+					<Route exact path="/Test" component={Test} />
 				</Switch>
 			</div>
 		);
