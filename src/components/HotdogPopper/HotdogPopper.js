@@ -20,17 +20,6 @@ class HotdogPopper extends React.Component {
         this.nextHotdogId = 0;
     }
 
-    getSpawnPointFromRef(reference) {
-        if(reference) {
-            const bounds = reference.current.getBoundingClientRect();
-            const spawnPoint = [ bounds.left, bounds.top ]; // should not use bounds.x or bounds.y according to the spec
-            return spawnPoint;
-        }
-        else {
-            console.error("No ref passed to getSpawnPointFromRef");
-        }
-    }
-
     popHotdogs(atReference) {
         if(atReference) {
             const numHotdogs = Math.floor((Math.random() * (this.props.popperMaxHotdogs - this.props.popperMinHotdogs)) + this.props.popperMinHotdogs);
@@ -46,6 +35,17 @@ class HotdogPopper extends React.Component {
         }
         else {
             console.error("Reference or Config missing from popHotdogs");
+        }
+    }
+
+    getSpawnPointFromRef(reference) {
+        if(reference) {
+            const bounds = reference.current.getBoundingClientRect();
+            const spawnPoint = [ bounds.left, bounds.top ]; // should not use bounds.x or bounds.y according to the spec
+            return spawnPoint;
+        }
+        else {
+            console.error("No ref passed to getSpawnPointFromRef");
         }
     }
 
