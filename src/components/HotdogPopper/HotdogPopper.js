@@ -6,6 +6,8 @@ import _ from 'lodash';
 
 import PoppedHotdog from "./PoppedHotdog";
 
+import "./HotdogPopper.css";
+
 class HotdogPopper extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +19,9 @@ class HotdogPopper extends React.Component {
                 minPopLength: 100, // inclusive
                 maxPopLength: 200, // not inclusive
                 disposeAfter: 1000, // ms
-                possibleColors: ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-muted"],
+                possibleColors: ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-muted", "color-darkgreen", "color-deepskyblue", "color-lime", "color-maroon", "color-navy", "color-navajowhite", "color-purple", "color-salmon", "color-springgreen"],
+                minRotation: 0,
+                maxRotation: 180,
             },
             selfRef: React.createRef(),
             hotdogsObject: {}
@@ -86,12 +90,19 @@ class HotdogPopper extends React.Component {
             hotdog.hotdogStyle = {
                 left: hotdog.spawnPoint[0] + (Math.cos(hotdog.popAngle) * hotdog.popLength),
                 top: hotdog.spawnPoint[1] + (Math.sin(hotdog.popAngle) * hotdog.popLength),
-                opacity: 0
+                opacity: 0,
+                transform: this.buildRotationProperty(this.state.popperConfig.minRotation, this.state.popperConfig.maxRotation),
             }
             return hotdog;
         });
 
         this.setState({ hotdogsObject: newHotdogsObject });
+    }
+
+    buildRotationProperty(minDeg, maxDeg) {
+        let randomDegree = Math.floor((Math.random() * (maxDeg - minDeg)) + minDeg);
+        let propertyString = `rotate(${randomDegree.toString()}deg)`;
+        return propertyString;
     }
 
     hotdogRemoval(addedHotdogs) {
