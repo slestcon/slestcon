@@ -18,17 +18,6 @@ class HotdogPopper extends React.Component {
 
         this.selfRef = React.createRef(); // uses ref to get element location
         this.nextHotdogId = 0;
-
-        // this.popperConfig = {
-        //     popperMinHotdogs: 6, // inclusive
-        //     popperMaxHotdogs: 12, // not inclusive
-        //     popperMinPopLength: 100, // inclusive
-        //     popperMaxPopLength: 200, // not inclusive
-        //     popperDisposeAfter: 1000, // ms
-        //     popperPossibleColors: ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-muted", "color-darkgreen", "color-deepskyblue", "color-lime", "color-maroon", "color-navy", "color-navajowhite", "color-purple", "color-salmon", "color-springgreen"],
-        //     popperMinRotation: 0,
-        //     popperMaxRotation: 180,
-        // };
     }
 
     getSpawnPointFromRef(reference) {
@@ -135,10 +124,10 @@ HotdogPopper.defaultProps = {
     popperMaxHotdogs: 12, // not inclusive
     popperMinPopLength: 100, // inclusive
     popperMaxPopLength: 200, // not inclusive
-    popperDisposeAfter: 1000, // ms
+    popperMinRotation: 0, // degrees
+    popperMaxRotation: 180, // degrees
+    popperDisposeAfter: 1000, // ms; timeout before element is removed
     popperPossibleColors: ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-muted", "color-darkgreen", "color-deepskyblue", "color-lime", "color-maroon", "color-navy", "color-navajowhite", "color-purple", "color-salmon", "color-springgreen"],
-    popperMinRotation: 0,
-    popperMaxRotation: 180,
 }
 
 export default HotdogPopper;
