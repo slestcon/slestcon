@@ -13,27 +13,28 @@ class HotdogPopper extends React.Component {
         super(props);
 
         this.state = {
-            popperConfig: {
-                minHotdogs: 6, // inclusive
-                maxHotdogs: 12, // not inclusive
-                minPopLength: 100, // inclusive
-                maxPopLength: 200, // not inclusive
-                disposeAfter: 1000, // ms
-                possibleColors: ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-muted", "color-darkgreen", "color-deepskyblue", "color-lime", "color-maroon", "color-navy", "color-navajowhite", "color-purple", "color-salmon", "color-springgreen"],
-                minRotation: 0,
-                maxRotation: 180,
-            },
-            selfRef: React.createRef(),
             hotdogsObject: {}
         };
 
+        this.selfRef = React.createRef(); // uses ref to get element location
         this.nextHotdogId = 0;
+
+        // this.popperConfig = {
+        //     popperMinHotdogs: 6, // inclusive
+        //     popperMaxHotdogs: 12, // not inclusive
+        //     popperMinPopLength: 100, // inclusive
+        //     popperMaxPopLength: 200, // not inclusive
+        //     popperDisposeAfter: 1000, // ms
+        //     popperPossibleColors: ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-muted", "color-darkgreen", "color-deepskyblue", "color-lime", "color-maroon", "color-navy", "color-navajowhite", "color-purple", "color-salmon", "color-springgreen"],
+        //     popperMinRotation: 0,
+        //     popperMaxRotation: 180,
+        // };
     }
 
     getSpawnPointFromRef(reference) {
         if(reference) {
             const bounds = reference.current.getBoundingClientRect();
-            const spawnPoint = [ bounds.x, bounds.y ];
+            const spawnPoint = [ bounds.left, bounds.top ]; // should not use bounds.x or bounds.y according to the spec
             return spawnPoint;
         }
         else {
@@ -43,26 +44,26 @@ class HotdogPopper extends React.Component {
 
     popHotdogs(atReference) {
         if(atReference) {
-            const numHotdogs = Math.floor((Math.random() * (this.state.popperConfig.maxHotdogs - this.state.popperConfig.minHotdogs)) + this.state.popperConfig.minHotdogs);
+            const numHotdogs = Math.floor((Math.random() * (this.props.popperMaxHotdogs - this.props.popperMinHotdogs)) + this.props.popperMinHotdogs);
             const newHotdogs = {};
             const spawnPoint  = this.getSpawnPointFromRef(atReference);
             
             for(let i = 0; i < numHotdogs; i++) {
-                newHotdogs[this.nextHotdogId] = this.createHotdog(spawnPoint, this.state.popperConfig);
+                newHotdogs[this.nextHotdogId] = this.createHotdog(spawnPoint);
                 this.nextHotdogId++;
             }
 
-            this.addHotdogs(newHotdogs, this.state.popperConfig);
+            this.addHotdogs(newHotdogs);
         }
         else {
             console.error("Reference or Config missing from popHotdogs");
         }
     }
 
-    createHotdog(spawnPoint, popperConfig) {
-        const popLength = Math.floor((Math.random() * (popperConfig.maxPopLength - popperConfig.minPopLength)) + popperConfig.minPopLength);
+    createHotdog(spawnPoint) {
+        const popLength = Math.floor((Math.random() * (this.props.popperMaxPopLength - this.props.popperMinPopLength)) + this.props.popperMinPopLength);
         const popAngle = Math.floor(Math.random() * Math.PI * 2);
-        const color = popperConfig.possibleColors[Math.floor((Math.random() * popperConfig.possibleColors.length))];
+        const color = this.props.popperPossibleColors[Math.floor((Math.random() * this.props.popperPossibleColors.length))];
         const newHotdog = {
             spawnPoint: spawnPoint,
             popLength: popLength,
@@ -82,7 +83,7 @@ class HotdogPopper extends React.Component {
             hotdogsObject: {...this.state.hotdogsObject, ...newHotdogs}
         });
         setTimeout(() => {this.applyTransitionToCurrentHotdogs()});
-        setTimeout(() => {this.hotdogRemoval(newHotdogs)}, this.state.popperConfig.disposeAfter);
+        setTimeout(() => {this.hotdogRemoval(newHotdogs)}, this.props.popperDisposeAfter);
     }
 
     applyTransitionToCurrentHotdogs() {
@@ -91,7 +92,7 @@ class HotdogPopper extends React.Component {
                 left: hotdog.spawnPoint[0] + (Math.cos(hotdog.popAngle) * hotdog.popLength),
                 top: hotdog.spawnPoint[1] + (Math.sin(hotdog.popAngle) * hotdog.popLength),
                 opacity: 0,
-                transform: this.buildRotationProperty(this.state.popperConfig.minRotation, this.state.popperConfig.maxRotation),
+                transform: this.buildRotationProperty(this.props.popperMinRotation, this.props.popperMaxRotation),
             }
             return hotdog;
         });
@@ -113,8 +114,8 @@ class HotdogPopper extends React.Component {
 
     render() {
         return (
-            <span ref={ this.state.selfRef }>
-                <FontAwesomeIcon icon={ faHotdog } onClick={ () => this.popHotdogs(this.state.selfRef) } />
+            <span ref={ this.selfRef }>
+                <FontAwesomeIcon icon={ faHotdog } onClick={ () => this.popHotdogs(this.selfRef) } />
                 {
                     Object.keys(this.state.hotdogsObject).map((index) => (
                         <PoppedHotdog 
@@ -127,6 +128,17 @@ class HotdogPopper extends React.Component {
             </span>
         );
     }
+}
+
+HotdogPopper.defaultProps = {
+    popperMinHotdogs: 6, // inclusive
+    popperMaxHotdogs: 12, // not inclusive
+    popperMinPopLength: 100, // inclusive
+    popperMaxPopLength: 200, // not inclusive
+    popperDisposeAfter: 1000, // ms
+    popperPossibleColors: ["text-primary", "text-secondary", "text-success", "text-danger", "text-warning", "text-info", "text-muted", "color-darkgreen", "color-deepskyblue", "color-lime", "color-maroon", "color-navy", "color-navajowhite", "color-purple", "color-salmon", "color-springgreen"],
+    popperMinRotation: 0,
+    popperMaxRotation: 180,
 }
 
 export default HotdogPopper;
